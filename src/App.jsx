@@ -17,6 +17,7 @@ import PrivacySafety from './pages/PrivacySafety';
 import FAQ from './pages/FAQ';
 import ContactUs from './pages/ContactUs';
 import StudentDashboard from './pages/StudentDashboard';
+import OurExperts from './pages/OurExperts';
 <Route 
   path="/admin" 
   element={
@@ -40,6 +41,7 @@ export default function App() {
         <Route path="/privacy" element={<Layout><PrivacySafety /></Layout>} />
         <Route path="/faq" element={<Layout><FAQ /></Layout>} />
         <Route path="/contact" element={<Layout><ContactUs /></Layout>} />
+        <Route path="/our-experts" element={<Layout><OurExperts /></Layout>} />
 
         {/* Protected Routes — will need auth later */}
         

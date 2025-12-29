@@ -26,7 +26,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 1700);
     return () => clearTimeout(timer);
   }, []);
 
@@ -79,7 +79,7 @@ export default function Home() {
     <div 
       className="pt-16 min-h-screen bg-[#F5F3FF] relative overflow-hidden"
       style={{
-        backgroundImage: 'url("/images/BG.svg")',
+        backgroundImage: 'url("/images/BG3.svg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -87,22 +87,35 @@ export default function Home() {
       }}
     >
       {/* 🔆 Lighter overlay: image more visible, text still readable */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#F5F3FF]/75 via-[#F5F3FF]/85 to-[#EDE9FE]/30 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F5F3FF]/25 via-[#F5F3FF]/85 to-[#EDE9FE]/30 pointer-events-none"></div>
 
       {loading && (
-        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#EDE9FE]/90 backdrop-blur-sm opacity-100 transition-opacity duration-300">
-          <div className="relative">
-            <div className="w-16 h-16 border-4 border-[#7C3AED] border-t-transparent rounded-full animate-spin"></div>
-            <div className="absolute inset-0 rounded-full border-4 border-[#DDD6FE] animate-ping opacity-30"></div>
-          </div>
-          <p className="mt-6 text-lg font-medium text-[#312E81] max-w-xs text-center">
-            Connecting you to safe, confidential support...
-          </p>
-          <p className="mt-2 text-sm text-[#6D28D9] opacity-80">
-            Please wait a moment 🌱
-          </p>
-        </div>
-      )}
+  <div className="fixed inset-0 z-50 flex flex-col items-center justify-start bg-white pt-24">
+    {/* Video — no container, no bg overlay */}
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="w-full max-w-md h-auto rounded-xl shadow-sm"
+      aria-hidden="true"
+    >
+      <source src="/videos/psy-loop.mp4" type="video/mp4" />
+      {/* Fallback if video fails */}
+      <div className="w-full max-w-md h-48 bg-[#F5F3FF] rounded-xl flex items-center justify-center">
+        <div className="w-10 h-10 border-3 border-[#7C3AED] border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    </video>
+
+    {/* Text below video */}
+    <p className="mt-6 text-center text-[#312E81] font-medium max-w-xs px-4">
+      Connecting you to safe, confidential support...
+    </p>
+    <p className="mt-2 text-sm text-[#6D28D9] opacity-80 max-w-xs px-4">
+      Please wait a moment 🌱
+    </p>
+  </div>
+)}  
 
       {!loading && (
         <>
@@ -124,7 +137,7 @@ export default function Home() {
               ))}
             </div>
 
-            <p className="text-lg md:text-xl text-[#6D28D9] max-w-2xl mx-auto mb-10 opacity-90 animate-fade-in">
+            <p className="text-lg md:text-xl text-[#111144] max-w-2xl mx-auto mb-10 opacity-90 animate-fade-in">
               Talk to a certified psychologist in minutes — safe, anonymous, and confidential.
             </p>
 

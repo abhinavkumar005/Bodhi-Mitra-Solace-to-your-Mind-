@@ -37,13 +37,38 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo - Updated with random calming wellness image */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center border-2 border-[#7C3AED]/20">
+          <img 
+    src="/images/logo.svg" 
+    alt="Bodhi-Mitra Logo"
+    className="w-12 h-auto rounded-full max-h-16 object-contain"
+    onError={(e) => {
+      e.target.style.display = 'none';
+      e.target.parentElement.innerHTML = `
+        <div class="w-16 h-16 bg-[#7C3AED] rounded-full flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+          </svg>
+        </div>
+      `;
+    }}
+  />
+          <div className="w-px h-10 bg-[#DDD6FE] mx-3"></div>
+            <div className="w-13 h-12 rounded-full overflow-hidden flex items-center justify-center border-2 border-[#ffffff]/20">
               <img 
-                src="\images\logo.svg" 
-                alt="Bodhi-Mitra Logo" 
-                className="w-full h-full object-cover"
-                
-              />
+    src="/images/pschylogo.svg" 
+    alt="Bodhi-Mitra Logo"
+    className="w-14 h-auto rounded-full max-h-16 object-contain"
+    onError={(e) => {
+      e.target.style.display = 'none';
+      e.target.parentElement.innerHTML = `
+        <div class="w-16 h-16 bg-[#7C3AED] rounded-full flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+          </svg>
+        </div>
+      `;
+    }}
+  />
             </div>
             <span className="text-2xl font-extrabold tracking-wide text-[#312E81] group-hover:text-[#4C1D95] transition-colors">
   Bodhi<span className="text-[#7C3AED]">-Mitra</span>
@@ -88,7 +113,7 @@ export default function Navbar() {
 
             {/* NEW: Meet Our Experts */}
             <Link 
-              to="/experts"
+              to="/our-experts"
               className="flex items-center gap-1 text-[#4C1D95] hover:text-[#7C3AED] font-medium transition-colors group"
             >
               <Users2 className="w-4 h-4 text-[#6D28D9] group-hover:text-[#7C3AED] group-hover:scale-110 transition-transform" />

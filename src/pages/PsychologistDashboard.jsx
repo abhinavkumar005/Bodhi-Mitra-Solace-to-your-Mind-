@@ -132,7 +132,7 @@ export default function PsychologistDashboard() {
             <div className="flex items-center">
               <div className={`w-2 h-2 rounded-full mr-2 ${
                 availability === 'available' ? 'bg-green-500 animate-pulse' :
-                availability === 'busy' ? 'bg-yellow-500' : 'bg-gray-500'
+                availability === 'Attending Session' ? 'bg-yellow-500' : 'bg-gray-500'
               }`}></div>
               <span className="text-xs lg:text-sm font-medium capitalize">{availability}</span>
             </div>
@@ -142,7 +142,7 @@ export default function PsychologistDashboard() {
               className="bg-white text-[#312E81] text-xs px-2 py-1 rounded border-0 focus:ring-0"
             >
               <option value="available">Available</option>
-              <option value="busy">Busy</option>
+              <option value="Attending Session">Attending Session</option>
               <option value="offline">Offline</option>
             </select>
           </div>
