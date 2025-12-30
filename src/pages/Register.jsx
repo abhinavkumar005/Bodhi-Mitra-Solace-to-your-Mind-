@@ -210,7 +210,21 @@ export default function Register() {
       <header className="container mx-auto px-4 pt-6 pb-4 text-center">
         <div className="flex flex-col items-center">
           <div className="w-16 h-16 bg-[#7C3AED] rounded-full flex items-center justify-center mb-3">
-            <Heart className="w-8 h-8 text-white" />
+            <img 
+    src="/images/pschylogo.svg" 
+    alt="Bodhi-Mitra Logo"
+    className="w-15 h-auto rounded-full max-h-16 object-contain"
+    onError={(e) => {
+      e.target.style.display = 'none';
+      e.target.parentElement.innerHTML = `
+        <div class="w-16 h-16 bg-[#7C3AED] rounded-full flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+          </svg>
+        </div>
+      `;
+    }}
+  />
           </div>
           <h1 className="text-2xl md:text-3xl font-bold text-[#312E81]">
             Bodhi<span className="text-[#7C3AED]">-Mitra</span>

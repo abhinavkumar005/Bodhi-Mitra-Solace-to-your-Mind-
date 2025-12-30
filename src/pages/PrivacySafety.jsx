@@ -325,7 +325,7 @@ export default function PrivacySafety() {
           <div className="max-w-3xl mx-auto">
             <div className="w-16 h-16 bg-[#7C3AED] rounded-full flex items-center justify-center mx-auto mb-6">
               <img 
-    src="/images/logo.svg" 
+    src="/images/pschylogo.svg" 
     alt="Bodhi-Mitra Logo"
     className="w-15 h-auto rounded-full max-h-16 object-contain"
     onError={(e) => {
@@ -342,7 +342,7 @@ export default function PrivacySafety() {
             </div>
             <h2 className="text-2xl font-bold mb-4">Built on Trust, Designed for Safety</h2>
             <p className="text-lg opacity-90 mb-8">
-              Bodhi-Mitra follows the highest ethical standards for student mental health support — certified by RCI and aligned with DPDP Act guidelines.
+              Bodhi-Mitra follows the highest ethical standards for student mental health support — 
             </p>
             <div className="flex flex-wrap justify-center gap-6">
               {[

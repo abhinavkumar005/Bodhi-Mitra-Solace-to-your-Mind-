@@ -321,7 +321,7 @@ export default function ContactUs() {
                       <MapPin className="w-4 h-4 text-[#312E81] mt-1 mr-3 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-[#312E81]">Student Wellness Center</p>
-                        <p className="text-[#312E81] opacity-80">Room 205, Admin Building</p>
+                        <p className="text-[#312E81] opacity-80">Psychology Building</p>
                         <p className="text-[#312E81] opacity-80">Gautam Buddha University</p>
                       </div>
                     </div>
@@ -330,7 +330,7 @@ export default function ContactUs() {
                       <Clock className="w-4 h-4 text-[#312E81] mr-3 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-[#312E81]">Office Hours</p>
-                        <p className="text-[#312E81] opacity-80">Mon-Sat: 9 AM - 6 PM</p>
+                        <p className="text-[#312E81] opacity-80">Mon-Sat: 9 AM - 5 PM</p>
                         <p className="text-[#6D28D9] opacity-80 text-sm">*Psychologists available 24/7 online</p>
                       </div>
                     </div>
@@ -446,7 +446,7 @@ export default function ContactUs() {
           <div className="flex items-center justify-center space-x-2 mb-2">
             <div className="w-8 h-8 bg-[#7C3AED] rounded-full flex items-center justify-center">
               <img 
-    src="/images/logo.svg" 
+    src="/images/pschylogo.svg" 
     alt="Bodhi-Mitra Logo"
     className="w-15 h-auto rounded-full max-h-16 object-contain"
     onError={(e) => {
@@ -464,7 +464,7 @@ export default function ContactUs() {
             <span className="text-lg font-bold">Bodhi<span className="text-white/80">-Mitra</span></span>
           </div>
           <p className="opacity-80 text-sm">
-            © {new Date().getFullYear()} Bodhi-Mitra. Certified by RCI & National Mental Health Council.
+            © {new Date().getFullYear()} Bodhi-Mitra. All rights reserved.
           </p>
         </div>
       </footer>

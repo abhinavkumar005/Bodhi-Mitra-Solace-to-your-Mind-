@@ -117,7 +117,7 @@ export default function Login() {
         <div className="flex flex-col items-center">
           <div className="flex items-center justify-center mb-3">
   <img 
-    src="/images/logo.svg" 
+    src="/images/pschylogo.svg" 
     alt="Bodhi-Mitra Logo"
     className="w-16 h-auto rounded-full max-h-16 object-contain"
     onError={(e) => {

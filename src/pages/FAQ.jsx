@@ -281,7 +281,7 @@ export default function FAQ() {
           <div className="flex items-center justify-center space-x-2 mb-2">
             <div className="w-10 h-10 bg-[#7C3AED] rounded-full flex items-center justify-center">
               <img 
-    src="/images/logo.svg" 
+    src="/images/pschylogo.svg" 
     alt="Bodhi-Mitra Logo"
     className="w-15 h-auto rounded-full max-h-16 object-contain"
     onError={(e) => {

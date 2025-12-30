@@ -265,7 +265,7 @@ export default function Home() {
                   <div>
                     <div className="flex items-center space-x-2 mb-4">
                       <img 
-    src="/images/logo.svg" 
+    src="/images/pschylogo.svg" 
     alt="Bodhi-Mitra Logo"
     className="w-12 h-auto rounded-full max-h-16 object-contain"
     onError={(e) => {
