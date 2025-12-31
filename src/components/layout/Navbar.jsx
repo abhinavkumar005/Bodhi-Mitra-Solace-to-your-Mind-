@@ -84,7 +84,7 @@ export default function Navbar() {
               className="flex items-center gap-1 text-[#4C1D95] hover:text-[#7C3AED] font-medium transition-colors group"
             >
               <Info className="w-4 h-4 text-[#6D28D9] group-hover:text-[#7C3AED] group-hover:scale-110 transition-transform" />
-              <span>About</span>
+              <span>About Us</span>
             </Link>
             
             <Link 

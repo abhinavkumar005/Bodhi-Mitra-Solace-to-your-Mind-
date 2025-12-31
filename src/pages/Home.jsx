@@ -125,7 +125,7 @@ export default function Home() {
               {taglines.map((tagline, index) => (
                 <h1
                   key={index}
-                  className={`absolute inset-x-0 top-0 mx-auto text-3xl md:text-4xl lg:text-5xl font-bold text-[#312E81] max-w-3xl
+                  className={`absolute inset-x-0 top-0 mx-auto text-3xl md:text-4xl lg:text-5xl font-bold text-[#0F172A] max-w-3xl
                     transition-all duration-700 ease-in-out z-10
                     drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)]
                     ${index === currentTagline 
@@ -137,7 +137,7 @@ export default function Home() {
               ))}
             </div>
 
-            <p className="text-lg md:text-xl text-[#111144] max-w-2xl mx-auto mb-10 opacity-90 animate-fade-in">
+            <p className="text-lg md:text-xl text-[#111111] max-w-2xl mx-auto mb-10 opacity-90 animate-fade-in">
               Talk to a certified psychologist in minutes — safe, anonymous, and confidential.
             </p>
 

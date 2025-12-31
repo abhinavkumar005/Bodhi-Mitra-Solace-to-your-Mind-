@@ -26,7 +26,9 @@ export default function OurExperts() {
     { name: 'Ms. Mansi Sengar', title: 'Consultant Clinical Psychologist', image: '/images/experts/mansi-sengar.svg' },
     { name: 'Ms. Nikita Yadav', title: 'Consultant Counselling Psychologist', image: '/images/experts/nikita-yadav.svg' },
     { name: 'Ms. Ritu Sahu', title: 'Consultant Counselling Psychologist', image: '/images/experts/ritu-sahu.svg' },
-    { name: 'Ms. Samiya Ayaz', title: 'Consultant Clinical Psychologist', image: '/images/experts/samiya-ayaz.svg' }
+    { name: 'Ms. Samiya Ayaz', title: 'Consultant Clinical Psychologist', image: '/images/experts/samiya-ayaz.svg' },
+    { name: 'Ms. Vanshika Thukral', title: 'Consultant Clinical Psychologist', image: '/images/experts/vanshika-thukral.svg' }
+
   ];
 
   // ✅ SECTION 4: TRAINEES
