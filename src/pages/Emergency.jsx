@@ -1,32 +1,115 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
-  AlertTriangle, 
-  Phone, 
-  Heart, 
-  Shield, 
-  X, 
-  MapPin,
-  CheckCircle,
-  Clock,
-  Volume2,
-  ArrowLeft
+  AlertTriangle, Phone, Heart, Shield, X, MapPin, CheckCircle, Clock, 
+  Volume2, ArrowLeft, User, MessageCircle, Lock, Eye
 } from 'lucide-react';
 
 export default function Emergency() {
-  const [step, setStep] = useState('initial'); // 'initial' | 'connecting' | 'calming' | 'connected' | 'misuse'
+  // 🔐 Core states
+  const [step, setStep] = useState('auth'); // 'auth' | 'initial' | 'location' | 'connecting' | 'calming' | 'connected' | 'misuse'
+  const [phone, setPhone] = useState('');
+  const [otp, setOtp] = useState(['', '', '', '', '', '']);
+  const [isOtpSent, setIsOtpSent] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [locationConsent, setLocationConsent] = useState(null);
-  const [misuseCount, setMisuseCount] = useState(2); // Simulating 2/3 strikes
+  const [misuseCount, setMisuseCount] = useState(2); // Simulated misuse
   const [connected, setConnected] = useState(false);
+  const [chatMode, setChatMode] = useState('quick'); // 'quick' | 'direct' | 'emergency'
+  const [session, setSession] = useState(null); // Simulated existing session
 
-  // Simulate emergency misuse state
+  // OTP input refs
+  const otpInputsRef = useRef([]);
+
+  // Check for existing session (logged-in user)
+  useEffect(() => {
+    // Simulate existing session (e.g., from localStorage)
+    const savedSession = sessionStorage.getItem('bodhi_session');
+    if (savedSession) {
+      setSession(JSON.parse(savedSession));
+      setIsAuthenticated(true);
+      setStep('initial');
+    } else {
+      setStep('auth');
+    }
+  }, []);
+
+  // Misuse lock
   useEffect(() => {
     if (misuseCount >= 3) {
       setStep('misuse');
     }
   }, [misuseCount]);
 
+  // OTP auto-focus
+  useEffect(() => {
+    if (isOtpSent) {
+      otpInputsRef.current[0]?.focus();
+    }
+  }, [isOtpSent]);
+
+  // Handle OTP input
+  const handleOtpChange = (value, index) => {
+    if (/^[0-9]?$/.test(value)) {
+      const newOtp = [...otp];
+      newOtp[index] = value;
+      setOtp(newOtp);
+      
+      // Auto-focus next input
+      if (value && index < 5) {
+        otpInputsRef.current[index + 1]?.focus();
+      }
+    }
+  };
+
+  const handleOtpKeyDown = (e, index) => {
+    if (e.key === 'Backspace' && !otp[index] && index > 0) {
+      otpInputsRef.current[index - 1]?.focus();
+    }
+  };
+
+  // Phone validation
+  const isValidPhone = () => {
+    const digits = phone.replace(/\D/g, '');
+    return digits.length === 10 && /^[6-9]/.test(digits);
+  };
+
+  // Send OTP
+  const handleSendOtp = () => {
+    if (isValidPhone()) {
+      // Simulate OTP sent
+      setIsOtpSent(true);
+      alert(`OTP sent to +91 ${phone.slice(-5).padStart(10, '*')}`);
+    }
+  };
+
+  // Verify OTP
+  const handleVerifyOtp = () => {
+    if (otp.every(d => d)) {
+      // Simulate auth success
+      setIsAuthenticated(true);
+      setStep('initial');
+      
+      // Save session (simulated)
+      const newSession = {
+        id: `sess_${Date.now()}`,
+        phone: `+91${phone}`,
+        mode: chatMode,
+        startTime: new Date().toISOString()
+      };
+      setSession(newSession);
+      sessionStorage.setItem('bodhi_session', JSON.stringify(newSession));
+    }
+  };
+
+  // Emergency flow
   const handleEmergencyClick = (option) => {
+    if (!isAuthenticated) {
+      setChatMode('emergency');
+      setStep('auth');
+      return;
+    }
+    
     setSelectedOption(option);
     if (option === 'now') {
       setStep('location');
@@ -58,21 +141,149 @@ export default function Emergency() {
     setStep('initial');
   };
 
+  // Global back handler
   const goBack = () => {
-    if (step === 'location') {
-      setStep('initial');
-      setSelectedOption(null);
-    } else if (step === 'connecting') {
-      setStep('location');
-    } else if (step === 'calming') {
-      setStep('initial');
-    } else if (step === 'connected') {
-      setStep('initial');
-      setConnected(false);
-    } else if (step === 'misuse') {
-      setStep('initial');
+    switch (step) {
+      case 'auth':
+        if (isOtpSent) {
+          setIsOtpSent(false);
+          setOtp(['', '', '', '', '', '']);
+        } else {
+          window.history.back(); // Go to previous page
+        }
+        break;
+      case 'location':
+        setStep('initial');
+        setSelectedOption(null);
+        break;
+      case 'connecting':
+        setStep('location');
+        break;
+      case 'calming':
+        setStep('initial');
+        break;
+      case 'connected':
+        setStep('initial');
+        setConnected(false);
+        break;
+      case 'misuse':
+        setStep('initial');
+        break;
+      default:
+        window.history.back();
     }
   };
+
+  // Render phone auth screen
+  const renderAuthScreen = () => (
+    <div className="flex-1 flex flex-col items-center justify-center p-6">
+      <div className="text-center max-w-md w-full">
+        <div className="w-16 h-16 bg-[#7C3AED] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
+          <Lock className="w-8 h-8 text-[#7C3AED]" />
+        </div>
+        
+        <h1 className="text-2xl font-bold text-[#312E81] mb-2">
+          {chatMode === 'emergency' ? 'Emergency Verification' : 'Secure Access'}
+        </h1>
+        <p className="text-[#6D28D9] opacity-90 mb-6">
+          {chatMode === 'emergency' 
+            ? 'For your safety, we need to verify your number before connecting to emergency support.'
+            : 'Verify your number for secure, anonymous support.'}
+        </p>
+
+        {!isOtpSent ? (
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-[#312E81] mb-2">
+                Mobile Number (India)
+              </label>
+              <div className="flex">
+                <div className="bg-[#F5F3FF] border border-r-0 border-[#DDD6FE] px-4 py-3.5 rounded-l-xl flex items-center text-[#6D28D9] font-medium">
+                  +91
+                </div>
+                <input
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
+                  placeholder="98765 43210"
+                  className="flex-1 px-4 py-3.5 border border-[#DDD6FE] rounded-r-xl focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/30 focus:border-[#7C3AED]"
+                  maxLength="10"
+                />
+              </div>
+              <p className="text-xs text-[#6D28D9] mt-1 opacity-80">
+                We'll send a 6-digit OTP. Standard SMS rates apply.
+              </p>
+            </div>
+            
+            <button
+              onClick={handleSendOtp}
+              disabled={!isValidPhone()}
+              className={`w-full py-4 px-4 rounded-xl font-medium flex items-center justify-center gap-2 ${
+                isValidPhone()
+                  ? 'bg-[#7C3AED] hover:bg-[#6D28D9] text-white'
+                  : 'bg-[#F5F3FF] text-[#6D28D9] opacity-50'
+              }`}
+            >
+              <MessageCircle className="w-5 h-5" />
+              Send OTP
+            </button>
+          </div>
+        ) : (
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-lg font-bold text-[#312E81] mb-2">Enter OTP</h2>
+              <p className="text-[#6D28D9] opacity-90 mb-4">
+                We sent a 6-digit code to <span className="font-medium">+91 {phone.slice(0,5)} ****{phone.slice(-2)}</span>
+              </p>
+              
+              <div className="flex justify-center gap-2">
+                {otp.map((digit, index) => (
+                  <input
+                    key={index}
+                    ref={el => otpInputsRef.current[index] = el}
+                    type="text"
+                    inputMode="numeric"
+                    maxLength="1"
+                    value={digit}
+                    onChange={(e) => handleOtpChange(e.target.value, index)}
+                    onKeyDown={(e) => handleOtpKeyDown(e, index)}
+                    className="w-12 h-14 text-center text-lg font-bold border-2 border-[#DDD6FE] rounded-xl focus:border-[#7C3AED] focus:ring-2 focus:ring-[#7C3AED]/30 outline-none"
+                  />
+                ))}
+              </div>
+            </div>
+            
+            <div className="flex gap-3">
+              <button
+                onClick={() => setIsOtpSent(false)}
+                className="flex-1 py-3 px-4 bg-white border-2 border-[#DDD6FE] text-[#312E81] font-medium rounded-xl hover:bg-[#F5F3FF]"
+              >
+                Back
+              </button>
+              <button
+                onClick={handleVerifyOtp}
+                disabled={!otp.every(d => d)}
+                className={`flex-1 py-3 px-4 rounded-xl font-medium ${
+                  otp.every(d => d)
+                    ? 'bg-[#7C3AED] hover:bg-[#6D28D9] text-white'
+                    : 'bg-[#F5F3FF] text-[#6D28D9] opacity-50'
+                }`}
+              >
+                Verify & Continue
+              </button>
+            </div>
+            
+            <div className="pt-4 border-t border-[#DDD6FE]">
+              <p className="text-xs text-[#6D28D9] text-center">
+                <Eye className="w-3 h-3 inline mr-1" />
+                Your number is encrypted and never shared.
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-white">
@@ -108,7 +319,10 @@ export default function Emergency() {
               
               <div className="space-y-4">
                 <button 
-                  onClick={() => window.location.href = '/quick-connect'}
+                  onClick={() => {
+                    setChatMode('quick');
+                    window.location.href = '/quick-connect';
+                  }}
                   className="w-full py-3 px-4 bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-medium rounded-xl transition-colors"
                 >
                   Talk Now (Anonymous Chat)
@@ -139,30 +353,53 @@ export default function Emergency() {
       {/* Main Emergency Flow */}
       {step !== 'misuse' && (
         <div className="flex flex-col h-screen">
-          {/* Header with Back Button */}
-          <header className="bg-[#DC2626] text-white p-4 flex items-center">
+          {/* Fixed Header with Back Button */}
+          <header className={`fixed top-0 left-0 right-0 z-20 flex items-center p-4 shadow-sm ${
+            step === 'auth' ? 'bg-[#F5F3FF] border-b border-[#DDD6FE]' : 'bg-[#DC2626] text-white'
+          }`}>
             <button 
               onClick={goBack}
-              className="p-2 hover:bg-red-700 rounded-full mr-3 transition-colors"
+              className={`p-2 rounded-full mr-3 transition-colors ${
+                step === 'auth' 
+                  ? 'text-[#7C3AED] hover:bg-[#F5F3FF]' 
+                  : 'text-white hover:bg-red-700'
+              }`}
               aria-label="Go back"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
-            <div className="flex items-center">
-              <AlertTriangle className="w-6 h-6 mr-2" />
-              <span className="font-bold">EMERGENCY SUPPORT</span>
-            </div>
+            
+            {step === 'auth' ? (
+              <div className="flex items-center">
+                <Lock className="w-5 h-5 text-[#7C3AED] mr-2" />
+                <span className="font-bold text-[#312E81]">Secure Verification</span>
+              </div>
+            ) : (
+              <div className="flex items-center">
+                <AlertTriangle className="w-6 h-6 mr-2" />
+                <span className="font-bold">
+                  {chatMode === 'emergency' ? 'EMERGENCY SUPPORT' : 
+                   chatMode === 'direct' ? 'DIRECT CHAT' : 'QUICK CHAT'}
+                </span>
+              </div>
+            )}
+            
             <div className="ml-auto text-xs opacity-90">
               {step === 'initial' && 'Step 1 of 3'}
               {step === 'location' && 'Step 2 of 3'}
               {step === 'connecting' && 'Step 3 of 3'}
               {step === 'calming' && 'Calming Mode'}
               {step === 'connected' && 'Connected'}
+              {step === 'auth' && isOtpSent ? 'OTP Verification' : 'Phone Verification'}
             </div>
           </header>
 
-          {/* Main Content */}
-          <main className="flex-1 overflow-y-auto">
+          {/* Main Content (with top padding for header) */}
+          <main className="flex-1 overflow-y-auto pt-16">
+            {/* Phone Auth Screen */}
+            {step === 'auth' && renderAuthScreen()}
+
+            {/* Emergency Flow */}
             {step === 'initial' && (
               <div className="flex-1 flex flex-col items-center justify-center p-6">
                 <div className="text-center max-w-md">
@@ -171,33 +408,62 @@ export default function Emergency() {
                   </div>
                   
                   <h1 className="text-2xl font-bold text-[#312E81] mb-2">
-                    Are you safe right now?
+                    How can we support you right now?
                   </h1>
                   <p className="text-[#6D28D9] opacity-90 mb-8">
-                    Your safety is our priority. Choose what feels right.
+                    Choose what feels right for your needs today.
                   </p>
                   
                   <div className="space-y-4">
+                    {/* Emergency Chat */}
                     <button
-                      onClick={() => handleEmergencyClick('now')}
+                      onClick={() => {
+                        setChatMode('emergency');
+                        handleEmergencyClick('now');
+                      }}
                       className="w-full flex items-center justify-between p-5 bg-[#DC2626] hover:bg-[#B91C1C] text-white rounded-xl shadow-lg transition-colors"
                     >
                       <div className="text-left">
-                        <div className="font-bold text-lg">I need help NOW</div>
-                        <div className="text-sm opacity-90 mt-1">Connect in under 5 seconds</div>
+                        <div className="font-bold text-lg">🆘 Emergency Help</div>
+                        <div className="text-sm opacity-90 mt-1">For immediate distress or danger</div>
                       </div>
                       <AlertTriangle className="w-6 h-6" />
                     </button>
                     
+                    {/* Direct Chat */}
                     <button
-                      onClick={() => handleEmergencyClick('unsure')}
+                      onClick={() => {
+                        setChatMode('direct');
+                        // Direct chat requires auth
+                        if (!isAuthenticated) {
+                          setStep('auth');
+                        } else {
+                          // Simulate direct chat connection
+                          alert('✅ Connecting to your psychologist...');
+                        }
+                      }}
+                      className="w-full flex items-center justify-between p-5 bg-[#7C3AED] hover:bg-[#6D28D9] text-white rounded-xl shadow-lg transition-colors"
+                    >
+                      <div className="text-left">
+                        <div className="font-bold text-lg">💬 Direct Chat</div>
+                        <div className="text-sm opacity-90 mt-1">With your assigned psychologist</div>
+                      </div>
+                      <User className="w-6 h-6" />
+                    </button>
+                    
+                    {/* Quick Chat */}
+                    <button
+                      onClick={() => {
+                        setChatMode('quick');
+                        window.location.href = '/quick-connect';
+                      }}
                       className="w-full flex items-center justify-between p-5 bg-[#F5F3FF] border-2 border-[#7C3AED]/20 text-[#312E81] rounded-xl hover:bg-[#EDE9FE] transition-colors"
                     >
                       <div className="text-left">
-                        <div className="font-bold text-lg">I'm not sure</div>
-                        <div className="text-sm text-[#6D28D9] mt-1">Let me calm down first</div>
+                        <div className="font-bold text-lg">🗨️ Quick Chat</div>
+                        <div className="text-sm text-[#6D28D9] mt-1">Anonymous, no registration needed</div>
                       </div>
-                      <Heart className="w-6 h-6 text-[#7C3AED]" />
+                      <MessageCircle className="w-6 h-6 text-[#7C3AED]" />
                     </button>
                   </div>
                   
@@ -214,6 +480,7 @@ export default function Emergency() {
               </div>
             )}
 
+            {/* Remaining steps (location, connecting, etc.) remain unchanged from your original code */}
             {step === 'location' && (
               <div className="flex-1 flex flex-col items-center justify-center p-6">
                 <div className="text-center max-w-md">
@@ -389,7 +656,7 @@ export default function Emergency() {
                         <div className="font-bold text-[#312E81]">Dr. Mehta</div>
                         <div className="text-sm text-[#6D28D9] flex items-center">
                           <div className="w-2 h-2 bg-green-500 rounded-full mr-1"></div>
-                          Online • Emergency Response Team
+                          Online • {chatMode === 'emergency' ? 'Emergency Response Team' : 'Your Psychologist'}
                         </div>
                       </div>
                     </div>
@@ -439,10 +706,3 @@ export default function Emergency() {
     </div>
   );
 }
-
-// Helper component for MessageCircle
-const MessageCircle = ({ className }) => (
-  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-  </svg>
-);
