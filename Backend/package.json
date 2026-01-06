@@ -1,0 +1,28 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend of bodhimitra (solace to your mind)",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhi-create-design/Bodhi-Mitra.git"
+  },
+  "keywords": [
+    "javascript",
+    "node",
+    "bodhimitra"
+  ],
+  "author": "Abhinav & Abhishek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhi-create-design/Bodhi-Mitra/issues"
+  },
+  "homepage": "https://github.com/abhi-create-design/Bodhi-Mitra#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
