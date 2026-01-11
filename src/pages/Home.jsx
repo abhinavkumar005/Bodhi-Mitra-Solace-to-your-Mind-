@@ -91,6 +91,38 @@ export default function Home() {
 
       {loading && (
   <div className="fixed inset-0 z-50 flex flex-col items-center justify-start bg-white pt-24">
+    {/* Typing Effect Tagline */}
+<div className="typing-container">
+  <div className="typing-text">
+    <span>Bodhi-Mitra</span>, Solace to your mind.
+  </div>
+</div>
+
+<style jsx>{`
+  .typing-container {
+    font-size: 1.7rem; /* text-xs for navbar */
+    font-weight: 800; /* Bold */
+    color: #6D28D9;
+    min-height: 1.25em;
+    display: flex;
+    align-items: center;
+  }
+  .typing-text {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 1.5px solid #6D28D9;
+    animation: 
+      typing 1s steps(35, end) forwards,
+      blink 0.7s step-end infinite;
+  }
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+`}</style>
     {/* Video — no container, no bg overlay */}
     <video
       autoPlay
@@ -111,9 +143,7 @@ export default function Home() {
     <p className="mt-6 text-center text-[#312E81] font-medium max-w-xs px-4">
       Connecting you to safe, confidential support...
     </p>
-    <p className="mt-2 text-sm text-[#6D28D9] opacity-80 max-w-xs px-4">
-      Please wait a moment 🌱
-    </p>
+    
   </div>
 )}  
 
@@ -322,6 +352,7 @@ export default function Home() {
                 <div className="border-t border-white/20 mt-8 pt-6 text-center text-gray-300 text-sm opacity-80">
                   © {new Date().getFullYear()} Bodhi-Mitra. All rights reserved.
                 </div>
+                
               </footer>
             </div>
           </div>

@@ -2,7 +2,7 @@
 export default function Footer() {
   return (
     <footer className="bg-gray-100 py-4 text-center">
-      © {new Date().getFullYear()} Bodhi-Mitra
+      © {new Date().getFullYear()} Managed & Developed by Abhishek Prajapati, Abhinav Kumar, and Vivek Khatkar
     </footer>
   );
 }

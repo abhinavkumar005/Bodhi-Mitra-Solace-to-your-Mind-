@@ -70,9 +70,22 @@ export default function Navbar() {
     }}
   />
             </div>
-            <span className="text-2xl font-extrabold tracking-wide text-[#312E81] group-hover:text-[#4C1D95] transition-colors">
-  Bodhi<span className="text-[#7C3AED]">-Mitra</span>
-</span>
+            <img 
+    src="/images/bodhi-logo.svg" 
+    alt="Bodhi-Mitra Logo"
+    className="w-15 h-10 rounded-full max-h-16 object-contain"
+    onError={(e) => {
+      e.target.style.display = 'none';
+      e.target.parentElement.innerHTML = `
+        <div class="w-16 h-16 bg-[#7C3AED] rounded-full flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+          </svg>
+        </div>
+      `;
+    }}
+  />
+
 
           </Link>
 
@@ -203,7 +216,7 @@ export default function Navbar() {
 
               {/* NEW Mobile: Meet Our Experts */}
               <Link 
-                to="/experts"
+                to="/our-experts"
                 className="flex items-center gap-3 p-3 text-[#4C1D95] hover:bg-[#F5F3FF] rounded-lg font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
