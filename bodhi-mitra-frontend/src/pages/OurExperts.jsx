@@ -12,6 +12,8 @@ export default function OurExperts() {
 
   // ✅ SECTION 2: HIGHLIGHTED TRIAD (Ashfia, Anu, Puja)
   const highlighted = [
+    {
+    name: 'Dr. Anand Pratap Singh',title: 'Head, Consultant Clinical Psychologist',image: '/images/experts/dean.svg'},
     { name: 'Dr. Ashfia Nishat', title: 'Consultant Counselling Psychologist', image: '/images/experts/ashfia-nishat.svg' },
     { name: 'Dr. Anu Malik', title: 'Consultant Counselling Psychologist', image: '/images/experts/anu-malik.svg' },
     { name: 'Dr. Puja Kumari', title: 'Consultant Counselling Psychologist', image: '/images/experts/puja-kumari.svg' }
@@ -27,16 +29,13 @@ export default function OurExperts() {
     { name: 'Ms. Mansi Sengar', title: 'Consultant Clinical Psychologist', image: '/images/experts/mansi-sengar.svg' },
     { name: 'Ms. Nikita Yadav', title: 'Consultant Counselling Psychologist', image: '/images/experts/nikita-yadav.svg' },
     { name: 'Ms. Ritu Sahu', title: 'Consultant Counselling Psychologist', image: '/images/experts/ritu-sahu.svg' },
-    { name: 'Ms. Samiya Ayaz', title: 'Consultant Clinical Psychologist', image: '/images/experts/samiya-ayaz.svg' },
-    { name: 'Ms. Vanshika Thukral', title: 'Consultant Clinical Psychologist', image: '/images/experts/vanshika-thukral.svg' },
-    { name: 'Mr. Vivek Khatkar', title: 'Consultant Clinical Psychologist', image: '/images/experts/vivek-khatkar.svg' }
-
+    { name: 'Ms. Samiya Ayaz', title: 'Consultant Clinical Psychologist', image: '/images/experts/samiya-ayaz.svg' }
   ];
 
   // ✅ SECTION 4: TRAINEES
   const trainees = [
-    { name: 'Priya Verma', title: 'Trainee Psychologist' },
-    { name: 'Arjun Mehta', title: 'Trainee Psychologist' },
+    { name: 'Mr. Vivek Khatkar', title: 'Trainee Psychologist', image: '/images/experts/vivek-khatkar.svg' },
+    { name: 'Ms. Vanshika Thukral', title: 'Trainee Psychologist', image: '/images/experts/vanshika-thukral.svg' },
     { name: 'Zara Khan', title: 'Trainee Psychologist' },
     { name: 'Rohan Das', title: 'Trainee Psychologist' }
   ];
@@ -55,7 +54,7 @@ export default function OurExperts() {
 
       <main className="max-w-6xl mx-auto px-4 py-8 md:py-12">
         {/* 🥇 SECTION 1: HEAD / DEAN — IN WHITE CARD */}
-        <section className="mb-12 md:mb-16">
+        {/* <section className="mb-12 md:mb-16">
           <div className="text-center mb-6">
             <h2 className="text-lg md:text-xl font-semibold text-[#312E81] flex items-center justify-center gap-2">
               <GraduationCap className="w-5 h-5 text-[#7C3AED]" />
@@ -63,7 +62,7 @@ export default function OurExperts() {
             </h2>
           </div>
 
-          {/* Single centered card (white background, like consultants) */}
+          
           <div className="max-w-md mx-auto">
             <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-[#DDD6FE]">
               <div className="w-28 h-28 mx-auto rounded-full overflow-hidden border-2 border-[#F5F3FF]">
@@ -77,7 +76,7 @@ export default function OurExperts() {
               <p className="text-[#6D28D9] mt-1 text-base">{dean.title}</p>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* ✅ SECTION 2: HIGHLIGHTED TRIAD — HORIZONTAL LINE */}
         <section className="mb-12 md:mb-16">
@@ -88,7 +87,7 @@ export default function OurExperts() {
             </h2>
           </div>
           
-          <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {highlighted.map((expert, index) => (
               <div key={index} className="flex flex-col items-center">
                 <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-[#DDD6FE]">
@@ -113,7 +112,6 @@ export default function OurExperts() {
             <User className="w-5 h-5 text-[#7C3AED]" />
             Consultant Psychologists
           </h2>
-          
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {remainingConsultants.map((consultant, index) => (
               <div 
@@ -133,7 +131,6 @@ export default function OurExperts() {
             ))}
           </div>
         </section>
-
         {/* 🎓 SECTION 4: TRAINEES — WHITE CARDS */}
         <section className="mb-12 md:mb-16">
           <h2 className="text-lg md:text-xl font-semibold text-[#312E81] text-center mb-6 flex items-center justify-center gap-2">
@@ -148,9 +145,11 @@ export default function OurExperts() {
                 className="bg-white rounded-xl p-4 text-center shadow-sm border border-[#DDD6FE]"
               >
                 <div className="w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-[#F5F3FF] bg-[#F5F3FF] flex items-center justify-center">
-                  <span className="text-[#7C3AED] text-sm font-bold">
-                    {trainee.name.split(' ').slice(0, 2).map(n => n.charAt(0)).join('')}
-                  </span>
+                  <img
+                    src={trainee.image}
+                    alt={trainee.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="font-bold text-[#312E81] mt-3 text-sm">{trainee.name}</h3>
                 <p className="text-[#6D28D9] text-xs mt-1">{trainee.title}</p>
