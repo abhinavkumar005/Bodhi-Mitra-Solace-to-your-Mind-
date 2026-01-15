@@ -392,7 +392,7 @@ export default function Home() {
               display: flex;
               align-items: center;
               justify-content: center;
-              margin-bottom: 3rem; /* Kept consistent spacing */
+              margin-bottom: 3rem; /*Kept consistent spacing*/
               margin-top: -4rem;
             }
             .writing-text {
