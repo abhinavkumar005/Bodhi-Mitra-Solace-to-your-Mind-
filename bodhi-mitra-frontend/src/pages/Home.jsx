@@ -153,7 +153,7 @@ export default function Home() {
           {/* Hero Section */}
           <section className="container mx-auto px-4 py-12 md:py-20 text-center relative z-10">
             {/* NEW: "Bodhi-Mitra: Solace to your Mind" with left-to-right animation */}
-            <div className="writing-container mb-4"> {/* Reduced margin from mb-6 to mb-4 */}
+            <div className="writing-container mb-4">
               <div className="writing-text">
                 Bodhi-Mitra: Solace to your mind.
               </div>
@@ -382,25 +382,24 @@ export default function Home() {
 
           {/* Custom Animations */}
           <style>{`
-            /* Left-to-right writing animation for main homepage */
+            /* Left-to-right writing animation for main homepage - NO CURSOR */
             .writing-container {
               font-family: "Bernard MT Condensed", serif; /* Bernard MT Condensed font */
-              font-size: 3.2rem; /* Increased to 3.2rem as requested */
+              font-size: 3.2rem; /* Requested font size */
               font-weight: normal; /* Bernard MT Condensed doesn't need bold */
               color: white; /* White color */
               min-height: 1.25em;
               display: flex;
               align-items: center;
               justify-content: center;
-              margin-bottom: 3rem;
-              margin-top: -4rem; /* Kept consistent spacing */
+              margin-bottom: 1rem; /* Kept consistent spacing */
             }
             .writing-text {
               overflow: hidden;
               white-space: nowrap;
-              border-right: 2px solid white; /* Cursor color matches text */
+              /* REMOVED border-right property - no cursor */
               animation: 
-                writing 3s steps(50, end) forwards; /* Slower animation - 3 seconds with more steps for smoother effect */
+                writing 3s steps(50, end) forwards; /* Smooth reveal without cursor */
             }
             @keyframes writing {
               from { width: 0; }
