@@ -14,8 +14,9 @@ export default function OurExperts() {
   const highlighted = [
     {
     name: 'Dr. Anand Pratap Singh',title: 'Head, Consultant Clinical Psychologist',image: '/images/experts/dean.svg'},
-    { name: 'Dr. Ashfia Nishat', title: 'Consultant Counselling Psychologist', image: '/images/experts/ashfia-nishat.svg' },
     { name: 'Dr. Anu Malik', title: 'Consultant Counselling Psychologist', image: '/images/experts/anu-malik.svg' },
+    { name: 'Dr. Ashfia Nishat', title: 'Consultant Counselling Psychologist', image: '/images/experts/ashfia-nishat.svg' },
+    
     { name: 'Dr. Puja Kumari', title: 'Consultant Counselling Psychologist', image: '/images/experts/puja-kumari.svg' }
   ];
 

@@ -36,22 +36,21 @@ export default function AboutUs() {
   ];
 
   const certifications = [
-    
     { name: 'Gautam Buddha University', logo: <img 
-    src="/images/logo.svg" 
-    alt="Bodhi-Mitra Logo"
-    className="w-15 h-auto rounded-full max-h-16 object-contain"
-    onError={(e) => {
-      e.target.style.display = 'none';
-      e.target.parentElement.innerHTML = `
-        <div class="w-16 h-16 bg-[#7C3AED] rounded-full flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-          </svg>
-        </div>
-      `;
-    }}
-  /> },
+      src="/images/logo.svg" 
+      alt="Bodhi-Mitra Logo"
+      className="w-15 h-auto rounded-full max-h-16 object-contain"
+      onError={(e) => {
+        e.target.style.display = 'none';
+        e.target.parentElement.innerHTML = `
+          <div class="w-16 h-16 bg-[#7C3AED] rounded-full flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            </svg>
+          </div>
+        `;
+      }}
+    /> },
   ];
 
   return (
@@ -63,20 +62,20 @@ export default function AboutUs() {
             <div className="flex items-center justify-center mb-3">
               <div className="w-16 h-16 bg-[#7C3AED] rounded-full flex items-center justify-center">
                 <img 
-    src="/images/pschylogo.svg" 
-    alt="Bodhi-Mitra Logo"
-    className="w-15 h-auto rounded-full max-h-16 object-contain"
-    onError={(e) => {
-      e.target.style.display = 'none';
-      e.target.parentElement.innerHTML = `
-        <div class="w-16 h-16 bg-[#7C3AED] rounded-full flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-          </svg>
-        </div>
-      `;
-    }}
-  />
+                  src="/images/pschylogo.svg" 
+                  alt="Bodhi-Mitra Logo"
+                  className="w-15 h-auto rounded-full max-h-16 object-contain"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentElement.innerHTML = `
+                      <div class="w-16 h-16 bg-[#7C3AED] rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                        </svg>
+                      </div>
+                    `;
+                  }}
+                />
               </div>
             </div>
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">About Bodhi-Mitra</h1>
@@ -87,25 +86,60 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* About Bodhi-Mitra */}
+      {/* 🎓 MESSAGES LAYOUT: VC + Our Story */}
       <section className="py-12 md:py-16 animate-on-scroll">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#312E81] mb-4">Our Story</h2>
-            <p className="text-[#6D28D9] opacity-80 max-w-4xl mx-auto px-2">
-              Bodhi-Mitra was born from a simple truth: students deserve mental health support that’s fast, private, and truly understanding.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* 1. VICE CHANCELLOR (LEFT) */}
             <div>
+              <div className="relative bg-[#F5F3FF] rounded-2xl p-6 md:p-8 border border-[#DDD6FE] shadow-sm h-full">
+                <div className="absolute top-4 right-4 w-32 h-44 md:w-40 md:h-48 rounded-lg overflow-hidden border-2 border-white shadow-lg z-10 transform">
+                  <img
+                    src="/images/leadership/vc.png"
+                    alt="Prof. (Dr.) Arun Kumar"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.parentElement.innerHTML = `
+                        <div class="w-full h-full bg-[#7C3AED] flex items-center justify-center">
+                          <span class="text-white text-lg font-bold">AK</span>
+                        </div>
+                      `;
+                    }}
+                  />
+                </div>
+                
+                <div className="mb-4 pt-16">
+                  <h5 className="text-lg md:text-xl font-italic text-[#11111]">From the Desk of Vice Chancellor</h5>
+                  <h3 className="text-lg md:text-xl font-bold text-[#312E81]">Prof. Rana Pratap Singh</h3>
+                  <p className="text-[#6D28D9]">Vice Chancellor, Gautam Buddha University</p>
+                </div>
+                
+                <div className="pt-4 border-t border-[#DDD6FE]">
+                  <p className="text-[#312E81] text-sm md:text-base leading-relaxed">
+                    The Department of Psychology and Mental Health, under the School of Humanities and Social Sciences, has consistently been at the forefront of mental health education and service delivery. It is with pride that I introduce “<span className="font-medium">Bodhi Mitra</span>,” an innovative digital platform designed to ensure continuous and comprehensive mental health support for our students at the campus.
+                    <br /><br />
+                    “<span className="font-medium">Bodhi Mitra</span>” embodies the essence of a mind-mate in your journey toward mental wellness. The platform provides round-the-clock access to licensed clinical psychologists, counselling psychologists, and trained professionals who are committed to addressing psychological needs ranging from stress, anxiety, and adjustment difficulties to crisis intervention and therapeutic care.
+                    <br /><br />
+                    Through one-to-one consultations, psychological assessments, crisis management, and ongoing therapeutic support, “<span className="font-medium">Bodhi Mitra</span>” offers a safe, confidential, and compassionate environment. Our aim is not only to provide immediate support but also to foster resilience and promote a culture of self-awareness, empathy, and mental health literacy within the university community.
+                    <br /><br />
+                    I am confident that this initiative will strengthen our collective efforts in building a nurturing environment where every student feels seen, supported, and empowered. I extend my heartfelt appreciation to the Department of Psychology and Mental Health and the team “<span className="font-medium">Bodhi Mitra</span>” for this commendable step toward promoting holistic wellbeing and inclusivity on our campus.
+                    <br /><br />
+                    I wish the entire team great success in their continued mission of care, compassion, and excellence.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Our Story + Name + GBU (RIGHT) */}
+            <div className="space-y-6">
               <div className="bg-white rounded-xl p-6 shadow-sm border border-[#DDD6FE]">
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-[#7C3AED] rounded-full mt-2 mr-4 flex-shrink-0"></div>
                   <div>
-                    <h3 className="text-xl font-bold text-[#312E81] mb-3">Why We Started</h3>
+                    <h3 className="text-xl font-bold text-[#312E81] mb-3">Our Story</h3>
                     <p className="text-[#312E81] opacity-90 mb-3">
-                      In 2024, a campus survey revealed that 73% of GBU students reported feeling overwhelmed by academic pressure — yet only 12% sought help due to stigma, cost, or fear of exposure.
+                      In recent days, it has become evident across the GBU campus that academic pressure is taking a serious toll on students, with 73% reporting feelings of being overwhelmed. Yet, despite the growing burden, only 12% come forward to seek help—often silenced by stigma, financial barriers, and the fear of being judged or exposed.
                     </p>
                     <p className="text-[#312E81] opacity-90">
                       Bodhi-Mitra was created to close this gap — offering immediate, anonymous, and free support from certified professionals.
@@ -113,9 +147,7 @@ export default function AboutUs() {
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div>
               <div className="space-y-4">
                 <div className="bg-[#F5F3FF] rounded-xl p-5 border border-[#7C3AED]">
                   <div className="flex">
@@ -141,163 +173,97 @@ export default function AboutUs() {
                     </div>
                   </div>
                 </div>
-                
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 🎓 MESSAGES FROM LEADERSHIP (EXACTLY AS IN PDF) */}
-      
-      {/* 1. VICE CHANCELLOR */}
-      <section className="py-12 md:py-16 bg-white animate-on-scroll">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="relative bg-[#F5F3FF] rounded-2xl p-6 md:p-8 border border-[#DDD6FE] shadow-sm">
-            {/* Photo in top-right */}
-            <div className="absolute top-4 right-4 w-32 h-44 md:w-40 md:h-48 rounded-lg overflow-hidden border-2 border-white shadow-lg z-10 transform">
-              <img
-                src="/images/leadership/vc.png"
-                alt="Prof. (Dr.) Arun Kumar"
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.parentElement.innerHTML = `
-                    <div class="w-full h-full bg-[#7C3AED] flex items-center justify-center">
-                      <span class="text-white text-lg font-bold">AK</span>
-                    </div>
-                  `;
-                }}
-              />
-            </div>
-            
-            {/* Name & Title on left */}
-            <div className="mb-4">
-              <br /><br />
-              <h5 className="text-lg md:text-xl font-italic text-[#11111]">From the Desk of Vice Chancellor</h5>
-              <h3 className="text-lg md:text-xl font-bold text-[#312E81]">Prof. Rana Pratap Singh</h3>
-              <p className="text-[#6D28D9]">Vice Chancellor, Gautam Buddha University</p>
-              <br /><br />
-              
-            </div>
-            
-            {/* Message (verbatim from PDF) */}
-            <div className="pt-4 border-t border-[#DDD6FE]">
-              <p className="text-[#312E81] text-sm md:text-base leading-relaxed">
-                The Department of Psychology and Mental Health, under the School of Humanities and Social Sciences, has consistently been at the forefront of mental health education and service delivery. It is with pride that I introduce “<span className="font-medium">Bodhi Mitra</span>,” an innovative digital platform designed to ensure continuous and comprehensive mental health support for our students at the campus.
-                <br /><br />
-                “<span className="font-medium">Bodhi Mitra</span>” embodies the essence of a mind-mate in your journey toward mental wellness. The platform provides round-the-clock access to licensed clinical psychologists, counselling psychologists, and trained professionals who are committed to addressing psychological needs ranging from stress, anxiety, and adjustment difficulties to crisis intervention and therapeutic care.
-                <br /><br />
-                Through one-to-one consultations, psychological assessments, crisis management, and ongoing therapeutic support, “<span className="font-medium">Bodhi Mitra</span>” offers a safe, confidential, and compassionate environment. Our aim is not only to provide immediate support but also to foster resilience and promote a culture of self-awareness, empathy, and mental health literacy within the university community.
-                <br /><br />
-                I am confident that this initiative will strengthen our collective efforts in building a nurturing environment where every student feels seen, supported, and empowered. I extend my heartfelt appreciation to the Department of Psychology and Mental Health and the team “<span className="font-medium">Bodhi Mitra</span>” for this commendable step toward promoting holistic wellbeing and inclusivity on our campus.
-                <br /><br />
-                I wish the entire team great success in their continued mission of care, compassion, and excellence.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. DEAN */}
+      {/* 🎓 MESSAGES LAYOUT: DEAN + HOD */}
       <section className="py-12 md:py-16 bg-[#F5F3FF] animate-on-scroll">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="relative bg-white rounded-2xl p-6 md:p-8 border border-[#DDD6FE] shadow-sm">
-            {/* Photo in top-right */}
-            <div className="absolute top-4 right-4 w-32 h-44 md:w-40 md:h-48 rounded-lg overflow-hidden border-2 border-white shadow-lg z-10 transform">
-              <img
-                src="/images/leadership/dean.jpg"
-                alt="Dr. Anand Pratap Singh"
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.parentElement.innerHTML = `
-                    <div class="w-full h-full bg-[#7C3AED] flex items-center justify-center">
-                      <span class="text-white text-lg font-bold">AS</span>
-                    </div>
-                  `;
-                }}
-              />
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* 2. DEAN (LEFT) */}
+            <div>
+              <div className="relative bg-white rounded-2xl p-6 md:p-8 border border-[#DDD6FE] shadow-sm h-full">
+                <div className="absolute top-4 right-4 w-32 h-44 md:w-40 md:h-48 rounded-lg overflow-hidden border-2 border-white shadow-lg z-10 transform">
+                  <img
+                    src="/images/leadership/dean.jpg"
+                    alt="Dr. Anand Pratap Singh"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.parentElement.innerHTML = `
+                        <div class="w-full h-full bg-[#7C3AED] flex items-center justify-center">
+                          <span class="text-white text-lg font-bold">AS</span>
+                        </div>
+                      `;
+                    }}
+                  />
+                </div>
+                
+                <div className="mb-4 pt-16">
+                  <h5 className="text-lg md:text-xl font-italic text-[#11111]">From the Desk of Dean,</h5>
+                  <h5 className="text-lg md:text-xl font-italic text-[#6D28D9]">School of Humanities and Social Sciences</h5>
+                  <h3 className="text-lg md:text-xl font-bold text-[#312E81]">Dr. Madhav Govind</h3>
+                  <p className="text-[#6D28D9]">Gautam Buddha University</p>
+                </div>
+                
+                <div className="pt-4 border-t border-[#DDD6FE]">
+                  <p className="text-[#312E81] text-sm md:text-base leading-relaxed">
+                    It gives me immense pride and joy to share the launch of “<span className="font-medium">Bodhi Mitra</span>”, an innovative digital initiative of the Department of Psychology and Mental Health under the School of Humanities and Social Sciences, Gautam Buddha University. Conceived with a deep sense of compassion and academic responsibility, “<span className="font-medium">Bodhi Mitra</span>” symbolizes our collective commitment to nurturing mental wellbeing, emotional resilience, and holistic development among our students.
+                    <br /><br />
+                    The changing times have highlighted the indispensability of mental health support in every sphere of life, particularly for young minds who are balancing academic demands and personal growth. In this context, “<span className="font-medium">Bodhi Mitra</span>” stands as a reliable digital platform offering seamless access to psychological care and guidance. With the help of licensed clinical psychologists, counselling professionals, and trained experts, the platform provides round-the-clock psychosocial and therapeutic support to students, both on campus and remotely.
+                    <br /><br />
+                    Beyond clinical assistance, “<span className="font-medium">Bodhi Mitra</span>” focuses on promoting mental health through sensitisation programmes, workshops, and ongoing awareness initiatives that enhance emotional literacy and destigmatize mental health concerns. The platform’s integrative approach, combining scientific understanding with empathy, reflects the ethos of the School of Humanities and Social Sciences, where human values and intellectual growth go hand in hand.
+                    <br /><br />
+                    I extend my heartfelt congratulations to the dedicated faculty, clinicians, and trainees of the Department of Psychology and Mental Health for conceptualizing and implementing this much-needed initiative. I am confident that “<span className="font-medium">Bodhi Mitra</span>” will serve as a beacon of hope, care, and transformation, ensuring that no student feels alone in their journey toward wellbeing.
+                    <br /><br />
+                    I sincerely wish the team great success in carrying forward this noble mission of mental health empowerment and compassionate support to GBU family.
+                  </p>
+                </div>
+              </div>
             </div>
-            
-            {/* Name & Title on left */}
-            <div className="mb-4">
-              <br /><br />
-              <h5 className="text-lg md:text-xl font-italic text-[#11111]">From the Desk of Dean,</h5>
-              <h5 className="text-lg md:text-xl font-italic text-[#6D28D9]">School of Humanities and Social Sciences</h5>
-              
-              <h3 className="text-lg md:text-xl font-bold text-[#312E81]">Dr. Madhav Govind</h3>
-              
-              <p className="text-[#6D28D9]">Gautam Buddha University</p>
-            </div>
-            <br></br>
-            
-            {/* Message (verbatim from PDF) */}
-            <div className="pt-4 border-t border-[#DDD6FE]">
-              <p className="text-[#312E81] text-sm md:text-base leading-relaxed">
-                It gives me immense pride and joy to share the launch of “<span className="font-medium">Bodhi Mitra</span>”, an innovative digital initiative of the Department of Psychology and Mental Health under the School of Humanities and Social Sciences, Gautam Buddha University. Conceived with a deep sense of compassion and academic responsibility, “<span className="font-medium">Bodhi Mitra</span>” symbolizes our collective commitment to nurturing mental wellbeing, emotional resilience, and holistic development among our students.
-                <br /><br />
-                The changing times have highlighted the indispensability of mental health support in every sphere of life, particularly for young minds who are balancing academic demands and personal growth. In this context, “<span className="font-medium">Bodhi Mitra</span>” stands as a reliable digital platform offering seamless access to psychological care and guidance. With the help of licensed clinical psychologists, counselling professionals, and trained experts, the platform provides round-the-clock psychosocial and therapeutic support to students, both on campus and remotely.
-                <br /><br />
-                Beyond clinical assistance, “<span className="font-medium">Bodhi Mitra</span>” focuses on promoting mental health through sensitisation programmes, workshops, and ongoing awareness initiatives that enhance emotional literacy and destigmatize mental health concerns. The platform’s integrative approach, combining scientific understanding with empathy, reflects the ethos of the School of Humanities and Social Sciences, where human values and intellectual growth go hand in hand.
-                <br /><br />
-                I extend my heartfelt congratulations to the dedicated faculty, clinicians, and trainees of the Department of Psychology and Mental Health for conceptualizing and implementing this much-needed initiative. I am confident that “<span className="font-medium">Bodhi Mitra</span>” will serve as a beacon of hope, care, and transformation, ensuring that no student feels alone in their journey toward wellbeing.
-                <br /><br />
-                I sincerely wish the team great success in carrying forward this noble mission of mental health empowerment and compassionate support to GBU family.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* 3. HOD */}
-      <section className="py-12 md:py-16 bg-white animate-on-scroll">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="relative bg-[#F5F3FF] rounded-2xl p-6 md:p-8 border border-[#DDD6FE] shadow-sm">
-            {/* Photo in top-right */}
-            <div className="absolute top-4 right-4 w-32 h-44 md:w-40 md:h-48 rounded-lg overflow-hidden border-2 border-white shadow-lg z-10 transform">
-              <img
-                src="/images/leadership/hod.svg"
-                alt="Dr. Meena Sharma"
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.parentElement.innerHTML = `
-                    <div class="w-full h-full bg-[#7C3AED] flex items-center justify-center">
-                      <span class="text-white text-lg font-bold">MS</span>
-                    </div>
-                  `;
-                }}
-              />
-            </div>
-            
-            {/* Name & Title on left */}
-            <div className="mb-4">
-              <br></br>
-              <br></br>
-              <h5 className="text-lg md:text-xl font-italic text-[#11111]">From the Desk of Head of Department,Psychology Department</h5>
-              
-              <h3 className="text-lg md:text-xl font-bold text-[#312E81]">Dr. Anand Pratap Singh</h3>
-              <p className="text-[#6D28D9]"> Gautam Buddha University</p>
-              <br></br>
-              <br></br>
-            </div>
-            
-            {/* Message (HOD message is part of Dean's in PDF — so omitted per your instruction) */}
-            {/* Note: Your PDF contains only VC and Dean messages. HOD role mentioned but no separate message. */}
-            <div className="pt-4 border-t border-[#DDD6FE]">
-              <p className="text-[#312E81] text-sm md:text-base leading-relaxed">
-                Across the globe, there has been a steady and concerning rise in psychological and emotional difficulties, with university students representing a particularly vulnerable population. The transitional demands of higher education: academic pressure, identity formation, interpersonal challenges, financial stressors, and uncertainty about the future intersect with developmental and psychosocial vulnerabilities. These pressures have been further intensified in recent years by rapid social change, digital immersion, and the lingering psychosocial impact of global disruptions. As a result, concerns such as stress, anxiety, low mood, social withdrawal, sleep disturbances, and emotional dysregulation are increasingly reported among students, often remaining unrecognised until they significantly impair wellbeing and functioning.
- 
-                <br /><br />
-                Within the university context, mental health is not peripheral to academic life; it is foundational to learning, growth, and meaningful engagement. As both the Head of the Department of Psychology and Mental Health and a practising Clinical Psychologist, I strongly believe that institutions of higher education carry an ethical responsibility to create environments that actively support psychological wellbeing, reduce stigma, and promote timely access to professional care.
-                <br /><br />
-                It is within this framework that <span className="font-medium">Bodhi Mitra</span> was conceptualised and developed. Bodhimitra is envisioned as a comprehensive, ethically grounded digital mental health platform that extends care beyond conventional boundaries of time and space. Its core purpose is to ensure that students and staff of Gautam Buddha University have access to confidential, professional, and responsive mental health support, whether they are navigating everyday stressors or experiencing significant psychological distress.
-                <br /><br />
-                <span className="font-medium">Bodhi Mitra</span> integrates individual psychological support, crisis response, and preventive mental health initiatives within a single platform. By combining one-to-one professional care with mental health promotion, awareness, and capacity-building activities, it seeks not only to respond to distress but also to strengthen resilience, self-awareness, and help-seeking behaviours within the university community.
-                <br /><br />
-                The vision of <span className="font-medium">Bodhi Mitra</span> is to foster a campus culture where mental health is acknowledged, protected, and prioritised, where seeking support is viewed as a strength rather than a limitation. Through this initiative, Gautam Buddha University reaffirms its commitment to safeguarding the psychological well-being of its students and staff, recognising that a mentally healthy academic community is essential for personal development, academic excellence, and collective growth.
-              </p>
+            {/* 3. HOD (RIGHT) */}
+            <div>
+              <div className="relative bg-[#F5F3FF] rounded-2xl p-6 md:p-8 border border-[#DDD6FE] shadow-sm h-full">
+                <div className="absolute top-4 right-4 w-32 h-44 md:w-40 md:h-48 rounded-lg overflow-hidden border-2 border-white shadow-lg z-10 transform">
+                  <img
+                    src="/images/leadership/hod.svg"
+                    alt="Dr. Meena Sharma"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.parentElement.innerHTML = `
+                        <div class="w-full h-full bg-[#7C3AED] flex items-center justify-center">
+                          <span class="text-white text-lg font-bold">MS</span>
+                        </div>
+                      `;
+                    }}
+                  />
+                </div>
+                
+                <div className="mb-4 pt-16">
+                  <h5 className="text-lg md:text-xl font-italic text-[#11111]">From the Desk of Head of Department, Psychology Department</h5>
+                  <h3 className="text-lg md:text-xl font-bold text-[#312E81]">Dr. Anand Pratap Singh</h3>
+                  <p className="text-[#6D28D9]">Gautam Buddha University</p>
+                </div>
+                
+                <div className="pt-4 border-t border-[#DDD6FE]">
+                  <p className="text-[#312E81] text-sm md:text-base leading-relaxed">
+                    Across the globe, there has been a steady and concerning rise in psychological and emotional difficulties, with university students representing a particularly vulnerable population. The transitional demands of higher education: academic pressure, identity formation, interpersonal challenges, financial stressors, and uncertainty about the future intersect with developmental and psychosocial vulnerabilities. These pressures have been further intensified in recent years by rapid social change, digital immersion, and the lingering psychosocial impact of global disruptions. As a result, concerns such as stress, anxiety, low mood, social withdrawal, sleep disturbances, and emotional dysregulation are increasingly reported among students, often remaining unrecognised until they significantly impair wellbeing and functioning.
+                    <br /><br />
+                    Within the university context, mental health is not peripheral to academic life; it is foundational to learning, growth, and meaningful engagement. As both the Head of the Department of Psychology and Mental Health and a practising Clinical Psychologist, I strongly believe that institutions of higher education carry an ethical responsibility to create environments that actively support psychological wellbeing, reduce stigma, and promote timely access to professional care.
+                    <br /><br />
+                    It is within this framework that <span className="font-medium">Bodhi Mitra</span> was conceptualised and developed. Bodhimitra is envisioned as a comprehensive, ethically grounded digital mental health platform that extends care beyond conventional boundaries of time and space. Its core purpose is to ensure that students and staff of Gautam Buddha University have access to confidential, professional, and responsive mental health support, whether they are navigating everyday stressors or experiencing significant psychological distress.
+                    <br /><br />
+                    <span className="font-medium">Bodhi Mitra</span> integrates individual psychological support, crisis response, and preventive mental health initiatives within a single platform. By combining one-to-one professional care with mental health promotion, awareness, and capacity-building activities, it seeks not only to respond to distress but also to strengthen resilience, self-awareness, and help-seeking behaviours within the university community.
+                    <br /><br />
+                    The vision of <span className="font-medium">Bodhi Mitra</span> is to foster a campus culture where mental health is acknowledged, protected, and prioritised, where seeking support is viewed as a strength rather than a limitation. Through this initiative, Gautam Buddha University reaffirms its commitment to safeguarding the psychological well-being of its students and staff, recognising that a mentally healthy academic community is essential for personal development, academic excellence, and collective growth.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -411,20 +377,20 @@ export default function AboutUs() {
           <div className="flex items-center justify-center mb-4">
             <div className="w-12 h-12 bg-[#7C3AED] rounded-full flex items-center justify-center">
               <img 
-    src="/images/pschylogo.svg" 
-    alt="Bodhi-Mitra Logo"
-    className="w-15 h-auto rounded-full max-h-16 object-contain"
-    onError={(e) => {
-      e.target.style.display = 'none';
-      e.target.parentElement.innerHTML = `
-        <div class="w-16 h-16 bg-[#7C3AED] rounded-full flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-          </svg>
-        </div>
-      `;
-    }}
-  />
+                src="/images/pschylogo.svg" 
+                alt="Bodhi-Mitra Logo"
+                className="w-15 h-auto rounded-full max-h-16 object-contain"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.parentElement.innerHTML = `
+                    <div class="w-16 h-16 bg-[#7C3AED] rounded-full flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                      </svg>
+                    </div>
+                  `;
+                }}
+              />
             </div>
             <span className="ml-3 text-xl font-bold">Bodhi<span className="text-white/80">-Mitra</span></span>
           </div>
