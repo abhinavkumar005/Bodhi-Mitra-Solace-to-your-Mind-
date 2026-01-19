@@ -113,6 +113,7 @@ export default function AboutUs() {
                   <h5 className="text-lg md:text-xl font-italic text-[#11111]">From the Desk of Vice Chancellor</h5>
                   <h3 className="text-lg md:text-xl font-bold text-[#312E81]">Prof. Rana Pratap Singh</h3>
                   <p className="text-[#6D28D9]">Vice Chancellor, Gautam Buddha University</p>
+                  <br /><br />
                 </div>
                 
                 <div className="pt-4 border-t border-[#DDD6FE]">
@@ -207,6 +208,7 @@ export default function AboutUs() {
                   <h5 className="text-lg md:text-xl font-italic text-[#6D28D9]">School of Humanities and Social Sciences</h5>
                   <h3 className="text-lg md:text-xl font-bold text-[#312E81]">Dr. Madhav Govind</h3>
                   <p className="text-[#6D28D9]">Gautam Buddha University</p>
+                  
                 </div>
                 
                 <div className="pt-4 border-t border-[#DDD6FE]">
@@ -245,9 +247,12 @@ export default function AboutUs() {
                 </div>
                 
                 <div className="mb-4 pt-16">
-                  <h5 className="text-lg md:text-xl font-italic text-[#11111]">From the Desk of Head of Department, Psychology Department</h5>
+                  <h5 className="text-lg md:text-xl font-italic text-[#11111]">From the Desk of HOD, </h5>
+                  <h5 className="text-lg md:text-xl font-italic text-[#11111]">Psychology Department</h5>
+
                   <h3 className="text-lg md:text-xl font-bold text-[#312E81]">Dr. Anand Pratap Singh</h3>
                   <p className="text-[#6D28D9]">Gautam Buddha University</p>
+                  
                 </div>
                 
                 <div className="pt-4 border-t border-[#DDD6FE]">
